@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.16/addons/p5.dom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8"/>
+
+  <script>
+  var tmp;
+  var cpt = 0;
+  var konami = [];
+
+  konami[0] = "&";
+  konami[1] = "&";
+  konami[2] = "(";
+  konami[3] = "(";
+  konami[4] = "%";
+  konami[5] = "'";
+  konami[6] = "%";
+  konami[7] = "'";
+  konami[8] = "B";
+  konami[9] = "A";
+  </script>
+</head>
+<body>
+  <script>
+  $(document).keydown(function(event){
+    tmp = String.fromCharCode(event.which);
+    if(tmp === konami[cpt])
+    cpt++;
+    else
+    cpt = 0;
+    if(cpt === konami.length)
+    {
+      var body = window.document.getElementsByTagName('body')[0];
+      body.style.filter = "blur(50px)";
+      cpt = 0;
+    }
+  });
+  </script>
+</body>
+</html>
