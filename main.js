@@ -2,6 +2,7 @@ var LINE_WEIGHT = 20;
 var LINE_LENGTH = 180;
 var LINE_GAP = 360;
 var SPEED = 8;
+var CAR_SPEED = 5;
 var CAR_SENSITIVITY = 10;
 var CRASH = false;
 var distance = 0;
@@ -168,7 +169,7 @@ function Car(x,y,w,h,imgPath) {
   }
 
   this.autoMove = function() {
-    this.y = this.y + SPEED/3;
+    this.y = this.y + SPEED - CAR_SPEED;
     if(this.y > height) {
       this.show = false;
     }
